@@ -102,7 +102,7 @@ app.get("/privacypolicy",(req, res)=> {
     res.render("others/privacy");
 });
 app.get("/terms&condition",(req, res)=> {
-    res.render("others/termNcondition");
+    res.render("others/termNCondition");
 });
 
 app.listen(8080,()=>{
