@@ -1,0 +1,80 @@
+<% layout("./layouts/boilerplate.ejs") %>
+
+<!-- Add New Task -->
+<div class="row">
+    <div class="col-10 col-md-9 offset-md-4 box-effect px-4 py-3 mx-auto">
+        <h2 class="text-center">All Listed Task</h2>
+
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3">
+                <h3>Monday</h3>
+                <ul>
+                    <% for(task of allTasks.Monday){ %>
+                    <li><%= task %></li>
+                    <% } %>
+                </ul>    
+            </div>
+        
+            <div class="col-12 col-md-6 col-lg-3">
+                <h3>Tuesday</h3>
+                <ul>
+                    <% for(task of allTasks.Tuesday){ %>
+                    <li><%= task %></li>
+                    <% } %>
+                </ul>    
+            </div>
+        
+            <div class="col-12 col-md-6 col-lg-3">
+                <h3>Wednesday</h3>
+                <ul>
+                    <% for(task of allTasks.Wednesday){ %>
+                    <li><%= task %></li>
+                    <% } %>
+                </ul>    
+            </div>
+        
+            <div class="col-12 col-md-6 col-lg-3">
+                <h3>Thursday</h3>
+                <ul>
+                    <% for(task of allTasks.Thursday){ %>
+                    <li><%= task %></li>
+                    <% } %>
+                </ul>    
+            </div>
+        </div>
+            
+    <div class="row justify-content-center">       
+        
+        <div class="col-12 col-md-6 col-lg-3">
+            <h3>Friday</h3>
+            <ul>
+                <% for(task of allTasks.Friday){ %>
+                <li><%= task %></li>
+                <% } %>
+            </ul>    
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <h3>Saturday</h3>
+            <ul>
+                <% for(task of allTasks.Saturday){ %>
+                <li><%= task %></li>
+                <% } %>
+            </ul>    
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <h3>Sunday</h3>
+            <ul>
+                <% for(task of allTasks.Sunday){ %>
+                <li><%= task %></li>
+                <% } %>
+            </ul>    
+        </div>
+
+        
+    </div>
+        
+
+    </div>
+
+</div>

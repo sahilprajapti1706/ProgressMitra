@@ -1,0 +1,32 @@
+<% layout("./layouts/boilerplate.ejs") %>
+    
+
+<!-- Add New Task -->
+    <div class="row">
+        <div class="col-10 col-md-4 offset-md-4 box-effect px-4 py-3 mx-auto">
+            <form action="/addNote" method="post" novalidate class="needs-validation">
+
+                <h3 class="text-center">Add Notes</h3>
+                <div class="">
+                    <label for="title" class="form-label fs-5" >Title</label>
+                    <input type="text" name="note[title]" class="form-control" id="title" placeholder="Title" maxlength="15">
+                    <div class="invalid-feedback">Please enter Title</div>
+                </div>
+                <br>
+                <div> 
+                    <textarea
+                    id="notes"
+                    name="note[content]" 
+                    placeholder="Enter your notes....."
+                    class="form-control"
+                    rows="4"
+                    required></textarea>
+                    <div class="invalid-feedback">Enter Something</div>
+                </div>            
+                <div class="d-flex justify-content-center align-items-center mt-md-2">
+                    <button type="submit" class="btn btn-secondary"> Add </button>
+                </div>                
+            </form>
+        </div>
+
+    </div>

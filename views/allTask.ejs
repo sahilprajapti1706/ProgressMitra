@@ -1,0 +1,43 @@
+<% layout("./layouts/boilerplate.ejs") %>
+
+<!-- Add New Task -->
+<div class="row">
+    <div class="col-10 col-md-9 offset-md-4 box-effect px-4 py-3 mx-auto">
+        <h2 class="text-center">All Listed Tasks</h2>
+
+        <% 
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']; 
+        %>
+
+        <div class="row">
+            <% days.forEach((day, index) => { %>
+                <% if (index === 4) { %> <!-- Close and open a new row for Friday onward -->
+                    </div>
+                    <hr>
+                    <div class="row justify-content-center">
+                <% } %>
+
+                <div class="col-12 col-md-6 col-lg-3 border-start border-end border-secondary" >
+                    <h3><%= day %></h3>
+                    <% if (allTasks[day] && allTasks[day].length > 0) { %> <!-- Check if tasks are present -->
+                        <ul class="task-list">
+                            <% for (task of allTasks[day]) { %>
+                                <li class="task-item">
+                                    <span class="task-text"><%= task.name %></span>
+                                    <form action="/allTask/<%= task.id %>?_method=DELETE" method="POST" class="delete-form">
+                                        <input type="hidden" name="day" value="<%= day %>">
+                                        <button type="submit" class="btn btn-link text-danger fs-4" title="Delete">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </form> 
+                                </li>
+                            <% } %>
+                        </ul>
+                    <% } else { %>
+                        <p>No tasks for <%= day %> yet.</p>
+                    <% } %>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
