@@ -18,11 +18,9 @@ const subjectSchema = new mongoose.Schema({
 
 });
 
-subjectSchema.pre("save", async function (next) {
-  if (this.studyDays.length === 0) {
-    await this.deleteOne(); 
-  } else {
-    next();
+subjectSchema.post("save", async function (doc) {
+  if (doc.studyDays.length === 0) {
+    await doc.deleteOne();
   }
 });
 
