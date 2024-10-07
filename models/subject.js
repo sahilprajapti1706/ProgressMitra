@@ -16,6 +16,15 @@ const subjectSchema = new mongoose.Schema({
         ref: "User"
     }
 
-})
+});
+
+// Middleware to delete document when studyDays becomes empty
+schema.pre('save', function (next) {
+    if (this.studyDays.length === 0) {
+      this.remove();
+    } else {
+      next();
+    }
+  });
 
 module.exports = mongoose.model('Subject', subjectSchema);
