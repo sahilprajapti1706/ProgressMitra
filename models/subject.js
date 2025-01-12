@@ -18,13 +18,10 @@ const subjectSchema = new mongoose.Schema({
 
 });
 
-// Middleware to delete document when studyDays becomes empty
-subjectSchema.pre('save', function (next) {
-    if (this.studyDays.length === 0) {
-      this.remove();
-    } else {
-      next();
-    }
-  });
+subjectSchema.post("save", async function (doc) {
+  if (doc.studyDays.length === 0) {
+    await doc.deleteOne();
+  }
+});
 
 module.exports = mongoose.model('Subject', subjectSchema);
