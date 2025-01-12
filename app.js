@@ -6,7 +6,6 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
-// const { fetchData } = require("./utils/API")
 const { getTodayDay, sortByDays ,generateRandom} = require("./utils/helper");
 const session = require('express-session');
 const methodOverride = require("method-override")
